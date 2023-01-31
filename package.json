@@ -1,0 +1,24 @@
+{
+  "name": "01-fundamentos-nodejs",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Vinicius <viniciuferreira32@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "commitizen": "^4.3.0"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
