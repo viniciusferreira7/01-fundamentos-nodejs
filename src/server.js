@@ -1,4 +1,7 @@
-const a = 5
-const b = 4
+import http from 'node:http'
 
-console.log(a+b)
+const server = http.createServer((req, res) => {
+ return res.end('Hello world')
+})
+
+server.listen(3333)
