@@ -17,10 +17,10 @@ const server = http.createServer((req, res) => {
       name: 'John Doe',
       email: 'johndoe@exemple.com'
     })
-    return res.end(`Usuário adicionado`)
+    return res.writeHead(201).end()
   }
 
- return res.end('Hello world')
+ return res.writeHead(404).end()
 })
 
 server.listen(3333)
