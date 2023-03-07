@@ -11,12 +11,19 @@ import { Transform } from 'node:stream'
   }
 }
 
-const server = http.createServer((req, res) => {
- return req
-  .pipe(new InverseNumberStream())
-  .pipe(res)
 
-  res.writeHead(201).end()
+const server = http.createServer(async (req, res) => {
+  const buffer = []
+
+  for await (const chuck of req ){
+    buffer.push(chuck)
+  }
+
+  const fullSteamContent = buffer.concat(buffer).toString()
+
+  console.log(fullSteamContent)
+
+  return res.writeHead(201).end(fullSteamContent)
 
 } )
 
