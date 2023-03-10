@@ -13,13 +13,13 @@ import { Transform } from 'node:stream'
 
 
 const server = http.createServer(async (req, res) => {
-  const buffer = []
+  const buffers = []
 
   for await (const chuck of req ){
     buffer.push(chuck)
   }
 
-  const fullSteamContent = buffer.concat(buffer).toString()
+  const fullSteamContent = Buffer.concat(buffers).toString()
 
   console.log(fullSteamContent)
 
