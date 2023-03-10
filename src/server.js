@@ -1,28 +1,15 @@
 import http from 'node:http'
+import { json } from './middlewares/json.js'
 
 const users = []
 
 const server = http.createServer( async (req, res) => {
   const { method, url } = req
 
-  const buffer = []
-
-  for await (const chuck of req){
-    buffer.push(chuck)
-  }
-
-  try{
-    req.body = JSON.parse(Buffer.concat(buffer).toString())
-  } catch {
-    req.body = null
-
-    return res.writeHead(400).end()
-  }
-
+  await json(req, res)
 
   if(method === 'GET' && url === '/users'){
     return res
-    .setHeader('Content-Type', 'application/json')
     .end(JSON.stringify(users))
   }
 
