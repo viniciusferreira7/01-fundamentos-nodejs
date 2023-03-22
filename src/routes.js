@@ -34,7 +34,7 @@ export const routes = [
   },
   {
     method:'DELETE',
-    path:'/users/:slug',
+    path:'/users/:id',
     handler:(req, res) => {
       res.end('Teste')
     }
