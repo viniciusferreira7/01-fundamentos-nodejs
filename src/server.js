@@ -17,11 +17,10 @@ const server = http.createServer( async (req, res) => {
 
     const routeParams = req.url.match(route.path)
 
-    console.log(routeParams)
+    const params = { ...routeParams.groups }
 
-    // const params = {...routes}
+    req.params = params
 
-    console.log(route)
      return route.handler(req, res)
   }
 
