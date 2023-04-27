@@ -7,6 +7,3 @@ export function extractQueryParams(query){
     return queryParams
   }, {})
 }
-
-// Error:  return query.substr(1).split('&').reduce((queryParams, param) => {
-        // TypeError: Cannot read properties of undefined (reading 'substr')
